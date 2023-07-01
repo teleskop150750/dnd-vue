@@ -6,6 +6,7 @@
     "composite": true,
     "outDir": "./dist",
     "baseUrl": ".",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "types": ["node"]
   }
 }

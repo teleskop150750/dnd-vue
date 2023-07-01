@@ -12,6 +12,6 @@
     "@nado/eslint-config-basic-ts": "workspace:*",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.13.0"
+    "eslint-plugin-vue": "^9.15.1"
   }
 }
