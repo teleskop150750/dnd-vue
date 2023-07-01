@@ -1,0 +1,15 @@
+{
+  "name": "@nado/eslint-config-ts",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.cjs",
+  "peerDependencies": {
+    "eslint": ">=8.20.0",
+    "typescript": ">=4.9"
+  },
+  "dependencies": {
+    "@nado/eslint-config-basic-ts": "workspace:*",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1"
+  }
+}

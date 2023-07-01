@@ -1,0 +1,7 @@
+{
+  "stylelint.validate": ["vue", "css", "postcss"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "unocss.root": [
+    "play/floating",
+  ]
+}
