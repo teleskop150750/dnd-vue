@@ -58,7 +58,7 @@ export class KeyboardSensor implements SensorInstance {
   private handleStart() {
     const { activeNode, onStart } = this.props
     // TODO vue ref
-    const node = activeNode.node.current
+    const node = activeNode.node.value
 
     if (node) {
       scrollIntoViewIfNeeded(node)
@@ -89,7 +89,7 @@ export class KeyboardSensor implements SensorInstance {
         return
       }
 
-      const { collisionRect } = context.current
+      const { collisionRect } = context.value
       const currentCoordinates = collisionRect ? { x: collisionRect.left, y: collisionRect.top } : defaultCoordinates
 
       if (!this.referenceCoordinates) {
@@ -98,7 +98,7 @@ export class KeyboardSensor implements SensorInstance {
 
       const newCoordinates = coordinateGetter(event, {
         active,
-        context: context.current,
+        context: context.value,
         currentCoordinates,
       })
 
@@ -108,7 +108,7 @@ export class KeyboardSensor implements SensorInstance {
           x: 0,
           y: 0,
         }
-        const { scrollableAncestors } = context.current
+        const { scrollableAncestors } = context.value
 
         for (const scrollContainer of scrollableAncestors) {
           const direction = event.code
@@ -258,7 +258,7 @@ export class KeyboardSensor implements SensorInstance {
         const { code } = event
 
         if (keyboardCodes.start.includes(code)) {
-          const activator = active.activatorNode.current
+          const activator = active.activatorNode.value
 
           if (activator && event.target !== activator) {
             return false

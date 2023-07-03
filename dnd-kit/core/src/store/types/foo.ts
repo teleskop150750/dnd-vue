@@ -1,4 +1,5 @@
 // TODO: FIX заменить на vue ref
-// @ts-expect-error foo
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
-export type MutableRefObject<T> = any
+
+import type { Ref } from 'vue'
+
+export type MutableRefObject<T> = Ref<T>

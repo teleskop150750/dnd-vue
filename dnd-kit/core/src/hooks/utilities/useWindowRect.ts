@@ -1,8 +1,12 @@
-import type { Optional } from '@nado/dnd-kit-utilities'
-import { computed, type ComputedRef } from 'vue'
+import { computedEager, type Optional } from '@nado/dnd-kit-utilities'
+import { type MaybeRefOrGetter, toValue } from 'vue'
 
 import { getWindowClientRect } from '../../utilities'
 
-export function useWindowRect(element: ComputedRef<Optional<typeof window>>) {
-  return computed(() => (element.value ? getWindowClientRect(element.value) : undefined))
+export function useWindowRect(element: MaybeRefOrGetter<Optional<typeof window>>) {
+  return computedEager(() => {
+    const el = toValue(element)
+
+    return el ? getWindowClientRect(el) : undefined
+  })
 }

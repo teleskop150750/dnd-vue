@@ -2,9 +2,9 @@ import type { UniqueIdentifier } from '../../types'
 import type { DraggableNode } from './DraggableNode'
 
 export interface DraggableElement {
-  node: DraggableNode
   id: UniqueIdentifier
   index: number
+  node: DraggableNode
   collection: string
   disabled: boolean
 }

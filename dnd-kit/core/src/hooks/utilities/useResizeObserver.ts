@@ -12,13 +12,12 @@ interface Arguments {
  * Если ResizeObserver не определен в текущей среде выполнения, возвращает undefined.
  */
 export function useResizeObserver(props: Arguments) {
-  let observer: ResizeObserver | undefined
   const resizeObserver = shallowRef<ResizeObserver>()
 
   function cleanup() {
-    if (observer) {
-      observer.disconnect()
-      observer = undefined
+    if (resizeObserver.value) {
+      resizeObserver.value.disconnect()
+      resizeObserver.value = undefined
     }
   }
 
@@ -31,7 +30,7 @@ export function useResizeObserver(props: Arguments) {
 
       const { ResizeObserver } = window
 
-      observer = new ResizeObserver(props.callback)
+      resizeObserver.value = new ResizeObserver(props.callback)
     },
     { immediate: true },
   )
