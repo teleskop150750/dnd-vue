@@ -2,9 +2,10 @@ import { getWindow } from '../execution-context'
 import type { Nillable } from '../types'
 
 /**
- * Это `TouchEvent` `Event`
+ * Проверяет, является ли событие событием касания.
  *
- * @param event Event
+ * @param {Nillable<Event>} event - Объект события для проверки или `null`.
+ * @returns {boolean} Возвращает `true`, если событие является экземпляром `TouchEvent`, иначе `false`.
  */
 export function isTouchEvent(event: Nillable<Event>): event is TouchEvent {
   if (!event) {

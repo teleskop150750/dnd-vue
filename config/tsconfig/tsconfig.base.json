@@ -23,7 +23,7 @@
     "useDefineForClassFields": true,                     /* Выдавать поля класса, соответствующие стандарту ECMAScript. */
     // "moduleDetection": "auto",                        /* Контролируйте, какой метод используется для обнаружения JS-файлов модульного формата.. */
 
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": false,
     /* Modules */
     "module": "ESNext",                                  /* Specify what module code is generated. */
     // "rootDir": "./",                                  /* Укажите корневую папку в ваших исходных файлах. */

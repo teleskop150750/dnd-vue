@@ -10,13 +10,14 @@ const defaultThreshold = {
 }
 
 /**
- * Получить Scroll Direction и Speed
+ * Получает направление и скорость прокрутки для элемента-контейнера с учетом зоны порогового значения.
  *
- * @param scrollContainer ScrollContainer
- * @param scrollContainerRect ScrollContainerRect
- * @param posCoords PositionalCoordinates
- * @param acceleration ускорение
- * @param thresholdPercentage порог Процент
+ * @param {Element} scrollContainer - Элемент-контейнер прокрутки.
+ * @param {ClientRect} scrollContainerRect - Rect, описывающий элемент-контейнер прокрутки.
+ * @param {PositionalCoordinates} { top, left, right, bottom } - Координаты Rect, определяющие позицию курсора.
+ * @param {number} [acceleration=10] - Коэффициент ускорения прокрутки.
+ * @param {object} [thresholdPercentage=defaultThreshold] - Объект с процентными значениями порога по осям X и Y.
+ * @returns {object} Объект с направлением и скоростью прокрутки по осям X и Y.
  */
 export function getScrollDirectionAndSpeed(
   scrollContainer: Element,

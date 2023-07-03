@@ -1,9 +1,10 @@
 import { isDocument, isHTMLElement, isNode, isWindow } from '../type-guards'
 
 /**
- * Получить HTML Document
+ * Возвращает документ-владелец для указанного объекта события.
  *
- * @param target Event Target
+ * @param {Event['target']} target - Целевой объект события.
+ * @returns {Document} Возвращает объект документа, который является владельцем целевого элемента, или глобальный объект `document`, если владелец не найден.
  */
 export function getOwnerDocument(target: Event['target']): Document {
   if (!target) {

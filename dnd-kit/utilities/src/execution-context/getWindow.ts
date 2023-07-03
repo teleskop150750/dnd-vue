@@ -1,12 +1,15 @@
+import type { Optional } from 'src/types'
+
 import { isNode } from '../type-guards/isNode'
 import { isWindow } from '../type-guards/isWindow'
 
 /**
- * Получить Window из Node
+ * Возвращает глобальный объект window, связанный с объектом события или текущим окном по умолчанию.
  *
- * @param target Event Target
+ * @param {Event['target'] | undefined} target - Целевой объект события или `undefined`.
+ * @returns {typeof window} Возвращает глобальный объект window, связанный с объектом события, или текущий объект window по умолчанию, если связанный объект не найден.
  */
-export function getWindow(target: Event['target'] | undefined): typeof window {
+export function getWindow(target: Optional<Event['target']>): typeof window {
   if (!target) {
     return window
   }

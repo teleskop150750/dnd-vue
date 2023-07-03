@@ -5,10 +5,10 @@ import { getClientRect } from '../rect/getRect'
 import { getFirstScrollableAncestor } from './getScrollableAncestors'
 
 /**
- * Прокручивает заданный элемент в видимую область, если он еще не виден в окне просмотра.
+ * Прокручивает элемент в видимую область, если он не виден.
  *
- * @param element - Элемент, который нужно прокрутить в видимую область.
- * @param measure [measure=getClientRect] - Функция, которая возвращает ClientRect.
+ * @param {Optional<HTMLElement>} element - Элемент для прокрутки (может быть `null` или `undefined`).
+ * @param {(node: HTMLElement) => ClientRect} [measure] - Функция измерения элемента, возвращает объект с размерами и позицией. Если не указана, будет использоваться функция `getClientRect`.
  */
 export function scrollIntoViewIfNeeded(
   element: Optional<HTMLElement>,

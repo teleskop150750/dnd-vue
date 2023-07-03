@@ -3,9 +3,10 @@ import { isWindow } from '@nado/dnd-kit-utilities'
 import type { Coordinates } from '../../types'
 
 /**
- * Получить Scroll X coordinates
+ * Получает горизонтальную прокрутку координаты X элемента или окна.
  *
- * @param element: Element | Window
+ * @param {Element | typeof window} element - Элемент или объект window, для которого нужно получить координату прокрутки X.
+ * @returns {number} Координата прокрутки X для элемента или окна.
  */
 export function getScrollXCoordinate(element: Element | typeof window): number {
   if (isWindow(element)) {
@@ -16,9 +17,10 @@ export function getScrollXCoordinate(element: Element | typeof window): number {
 }
 
 /**
- * Получить Scroll Y coordinates
+ * Получает вертикальную прокрутку координаты Y элемента или окна.
  *
- * @param element: Element | Window
+ * @param {Element | typeof window} element - Элемент или объект window, для которого нужно получить координату прокрутки Y.
+ * @returns {number} Координата прокрутки Y для элемента или окна.
  */
 export function getScrollYCoordinate(element: Element | typeof window): number {
   if (isWindow(element)) {
@@ -29,10 +31,12 @@ export function getScrollYCoordinate(element: Element | typeof window): number {
 }
 
 /**
- * Получить Scroll coordinates
+ * Получает координаты прокрутки (x, y) для элемента или окна.
  *
- * @param element: Element | Window
+ * @param {Element | typeof window} element - Элемент или объект window, для которого необходимо получить координаты прокрутки.
+ * @returns {Coordinates} Объект с координатами прокрутки x и y.
  */
+
 export function getScrollCoordinates(element: Element | typeof window): Coordinates {
   return {
     x: getScrollXCoordinate(element),

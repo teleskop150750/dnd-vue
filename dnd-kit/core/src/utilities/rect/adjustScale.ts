@@ -5,10 +5,12 @@ import type { ClientRect } from '../../types'
 type Rect = Pick<ClientRect, 'width' | 'height'>
 
 /**
- * Регулировать Scale
- * @param transform Transform
- * @param rect1 'width' | 'height'
- * @param rect2 'width' | 'height'
+ * Корректирует масштабирование трансформации на основе двух Rects.
+ *
+ * @param {Transform} transform - объект Transform с текущими значениями трансформации
+ * @param {Optional<Rect>} rect1 - первый Rect (может быть не определен)
+ * @param {Optional<Rect>} rect2 - второй Rect (может быть не определен)
+ * @returns {Transform} - новый объект Transform с корректировкой масштабирования
  */
 export function adjustScale(transform: Transform, rect1: Optional<Rect>, rect2: Optional<Rect>): Transform {
   return {

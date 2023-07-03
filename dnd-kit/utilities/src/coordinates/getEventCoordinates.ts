@@ -3,7 +3,11 @@ import type { Optional } from '../types'
 import type { Coordinates } from './types'
 
 /**
- * Возвращает нормализованные координаты x и y для событий `mouse` и `touch`.
+ * Возвращает координаты события в виде объекта с полями x и y, если они доступны.
+ * Если координаты недоступны, возвращает undefined.
+ *
+ * @param {Event} event - Объект события, для которого нужно получить координаты.
+ * @returns {Optional<Coordinates>} Объект с полями x и y или undefined, если координаты недоступны.
  */
 export function getEventCoordinates(event: Event): Optional<Coordinates> {
   if (isTouchEvent(event)) {

@@ -5,9 +5,10 @@ import { defaultCoordinates } from '../coordinates'
 import { getScrollCoordinates, getScrollXCoordinate, getScrollYCoordinate } from './getScrollCoordinates'
 
 /**
- * Получить Scroll offset
- *
- * @param scrollableAncestors Предки Scrollable Element[]
+ * Возвращает смещение прокрутки для массива прокручиваемых предков.
+ 
+ * @param {Element[]} scrollableAncestors - Массив прокручиваемых предков.
+ * @returns {Coordinates} Объект с координатами x и y, представляющими смещение прокрутки для всех предков.
  */
 export function getScrollOffsets(scrollableAncestors: Element[]): Coordinates {
   return scrollableAncestors.reduce<Coordinates>(
@@ -17,18 +18,20 @@ export function getScrollOffsets(scrollableAncestors: Element[]): Coordinates {
 }
 
 /**
- * Получить Scroll X offset
+ * Возвращает смещение прокрутки по оси X для массива прокручиваемых предков.
  *
- * @param scrollableAncestors Предки Scrollable Element[]
+ * @param {Element[]} scrollableAncestors - Массив прокручиваемых предков.
+ * @returns {number} Значение смещения прокрутки по оси X для всех предков.
  */
 export function getScrollXOffset(scrollableAncestors: Element[]): number {
   return scrollableAncestors.reduce<number>((acc, node) => acc + getScrollXCoordinate(node), 0)
 }
 
 /**
- * Получить Scroll Y offset
+ * Возвращает смещение прокрутки по оси Y для массива прокручиваемых предков.
  *
- * @param scrollableAncestors Предки Scrollable Element[]
+ * @param {Element[]} scrollableAncestors - Массив прокручиваемых предков.
+ * @returns {number} Значение смещения прокрутки по оси Y для всех предков.
  */
 export function getScrollYOffset(scrollableAncestors: Element[]): number {
   return scrollableAncestors.reduce<number>((acc, node) => acc + getScrollYCoordinate(node), 0)

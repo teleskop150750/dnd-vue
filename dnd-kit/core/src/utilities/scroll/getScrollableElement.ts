@@ -9,9 +9,10 @@ import {
 } from '@nado/dnd-kit-utilities'
 
 /**
- * Получить Element или Window из Scroll Event
+ * Возвращает прокручиваемый элемент или undefined, если элемент непрокручиваемый.
  *
- * @param element Scroll Event target
+ * @param {Optional<EventTarget>} element - Элемент, который нужно проверить на прокручиваемость.
+ * @returns {Optional<Window | HTMLElement>} Прокручиваемый элемент или undefined, если элемент непрокручиваемый.
  */
 export function getScrollableElement(element: Optional<EventTarget>) {
   if (!canUseDOM || !element) {

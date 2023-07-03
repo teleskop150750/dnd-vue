@@ -16,9 +16,16 @@ interface ScrollPosition {
 }
 
 /**
- * Получить Scroll Position
+ * Возвращает объект с информацией о текущем положении прокрутки элемента-контейнера.
  *
- * @param scrollingContainer Element
+ * @param {Element} scrollingContainer - Элемент-контейнер, для которого нужно определить положение прокрутки.
+ * @returns {ScrollPosition} Объект с информацией о текущем положении прокрутки, включая:
+ * - isTop: {boolean} - true, если контейнер прокручен до верхнего края, иначе false.
+ * - isLeft: {boolean} - true, если контейнер прокручен до левого края, иначе false.
+ * - isBottom: {boolean} - true, если контейнер прокручен до нижнего края, иначе false.
+ * - isRight: {boolean} - true, если контейнер прокручен до правого края, иначе false.
+ * - maxScroll: {object} - объект с максимальными значениями прокрутки по осям X и Y.
+ * - minScroll: {object} - объект с минимальными значениями прокрутки по осям X и Y.
  */
 export function getScrollPosition(scrollingContainer: Element): ScrollPosition {
   const minScroll = {

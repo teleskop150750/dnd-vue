@@ -10,7 +10,12 @@ interface Options {
 const defaultOptions: Options = { ignoreTransform: false }
 
 /**
- * Возвращает ClientRect относительно области просмотра (viewport).
+ * Возвращает объект ClientRect с размерами и координатами элемента с учетом или без учета CSS-трансформации.
+ *
+ * @param {Element} element - Элемент, для которого вычисляются размеры и координаты.
+ * @param {Options} [options=defaultOptions] - Объект с опциями для вычисления размеров и координат.
+ * @param {boolean} [options.ignoreTransform=false] - Опция, указывающая игнорировать ли CSS-трансформации при вычислении размеров и координат.
+ * @returns {ClientRect} Возвращает объект ClientRect с размерами и координатами элемента.
  */
 export function getClientRect(element: Element, options: Options = defaultOptions): ClientRect {
   let rect: ClientRect = element.getBoundingClientRect()
@@ -36,10 +41,10 @@ export function getClientRect(element: Element, options: Options = defaultOption
 }
 
 /**
- * Возвращает ClientRect относительно области просмотра (viewport).
+ * Возвращает объект ClientRect элемента, игнорируя его трансформации.
  *
- * @remarks
- * ClientRect, возвращаемый этим методом, не учитывает `transforms`, примененные к измеряемому элементу.
+ * @param {Element} element - Элемент, для которого требуется получить ClientRect.
+ * @returns {ClientRect} Объект ClientRect с игнорированием трансформаций элемента.
  */
 export function getTransformAgnosticClientRect(element: Element): ClientRect {
   return getClientRect(element, { ignoreTransform: true })

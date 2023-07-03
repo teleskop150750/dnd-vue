@@ -4,7 +4,11 @@ import { cornersOfRectangle, sortCollisionsAsc } from './helpers'
 import type { CollisionDescriptor, CollisionDetection } from './types'
 
 /**
- * Проверьте, содержится ли данная точка внутри ограничивающего прямоугольника
+ *  * Определяет, находится ли точка внутри прямоугольника.
+ *
+ * @param {Coordinates} point - Координаты точки.
+ * @param {ClientRect} rect - Прямоугольник, заданный объектом ClientRect.
+ * @returns {boolean} Возвращает true, если точка находится внутри прямоугольника, иначе false.
  */
 function isPointWithinRect(point: Coordinates, rect: ClientRect): boolean {
   const { top, left, bottom, right } = rect
@@ -13,7 +17,21 @@ function isPointWithinRect(point: Coordinates, rect: ClientRect): boolean {
 }
 
 /**
- * Возвращает прямоугольники, над которыми наведен указатель
+ * Определяет столкновения между указателем и контейнерами.
+ *
+ * @typedef {Object} CollisionDetectionInput
+ * @property {DroppableContainer[]} droppableContainers - Массив контейнеров для проверки столкновений.
+ * @property {Map<string, ClientRect>} droppableRects - Карта, содержащая ClientRect каждого контейнера.
+ * @property {Coordinates | null} pointerCoordinates - Координаты указателя.
+ *
+ * @typedef {Object} CollisionDescriptor
+ * @property {string} id - Идентификатор контейнера, с которым произошло столкновение.
+ * @property {Object} data - Дополнительные данные столкновения.
+ * @property {DroppableContainer} data.droppableContainer - Контейнер, с которым произошло столкновение.
+ * @property {number} data.value - Эффективное расстояние от указателя до контейнера.
+ *
+ * @param {CollisionDetectionInput} params - Объект с данными для проверки столкновений.
+ * @returns {CollisionDescriptor[]} Массив объектов, описывающих столкновения.
  */
 export const pointerWithin: CollisionDetection = ({ droppableContainers, droppableRects, pointerCoordinates }) => {
   if (!pointerCoordinates) {

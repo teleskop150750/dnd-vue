@@ -1,9 +1,10 @@
 import type { ClientRect } from '../../types'
 
 /**
- * Получить Window ClientRect
+ * Возвращает объект ClientRect для окна браузера.
  *
- * @param element Window
+ * @param {typeof window} element - Объект окна браузера.
+ * @returns {ClientRect} Объект ClientRect, представляющий размеры и положение окна браузера.
  */
 export function getWindowClientRect(element: typeof window): ClientRect {
   const width = element.innerWidth

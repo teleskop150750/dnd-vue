@@ -1,9 +1,10 @@
 /**
- * Это Window
+ * Проверяет, является ли переданный объект объектом Window.
  *
- * @param element Object
+ * @param {object} element - Объект, который нужно проверить.
+ * @returns {boolean} - Возвращает true, если объект является объектом Window, иначе false.
  */
-export function isWindow(element: Object): element is typeof window {
+export function isWindow(element: object): element is typeof window {
   const elementString = Object.prototype.toString.call(element)
 
   return (

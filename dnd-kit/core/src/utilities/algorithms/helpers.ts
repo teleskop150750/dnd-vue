@@ -4,7 +4,11 @@ import type { ClientRect } from '../../types'
 import type { Collision, CollisionDescriptor } from './types'
 
 /**
- * Сортировать collisions от наименьшего к наибольшему значению
+ * Сортирует объекты CollisionDescriptor по возрастанию значения value.
+ *
+ * @param {CollisionDescriptor} a - Первый объект CollisionDescriptor для сравнения.
+ * @param {CollisionDescriptor} b - Второй объект CollisionDescriptor для сравнения.
+ * @returns {number} Результат сравнения (отрицательное значение, если a меньше b; положительное значение, если a больше b; и 0, если a равно b).
  */
 export function sortCollisionsAsc(
   { data: { value: a } }: CollisionDescriptor,
@@ -14,7 +18,11 @@ export function sortCollisionsAsc(
 }
 
 /**
- * Сортировать collisions от наибольшего к наименьшему значению
+ * Сортирует объекты CollisionDescriptor по убыванию значения свойства 'value'.
+ *
+ * @param {CollisionDescriptor} a - Первый объект CollisionDescriptor для сравнения.
+ * @param {CollisionDescriptor} b - Второй объект CollisionDescriptor для сравнения.
+ * @returns {number} Возвращает положительное число, если 'a' меньше 'b', отрицательное число, если 'a' больше 'b', иначе 0.
  */
 export function sortCollisionsDesc(
   { data: { value: a } }: CollisionDescriptor,
@@ -24,8 +32,10 @@ export function sortCollisionsDesc(
 }
 
 /**
- * Возвращает координаты углов заданного прямоугольника:
- * [TopLeft {x, y}, TopRight {x, y}, BottomLeft {x, y}, BottomRight {x, y}]
+ * Вычисляет координаты углов прямоугольника на основе объекта ClientRect.
+ *
+ * @param {Object} param - Объект ClientRect с координатами и размерами прямоугольника.
+ * @returns {Array<Object>} Массив объектов с координатами углов прямоугольника (верхний левый, верхний правый, нижний левый и нижний правый).
  */
 export function cornersOfRectangle({ left, top, height, width }: ClientRect) {
   return [
@@ -49,8 +59,11 @@ export function cornersOfRectangle({ left, top, height, width }: ClientRect) {
 }
 
 /**
- * Возвращает первое столкновение или `undefined`, если его нет.
- * Если указано `property`, возвращает указанное `property` первого столкновения.
+ * Возвращает первое столкновение из массива столкновений или значение указанного свойства первого столкновения.
+ *
+ * @param {Optional<Collision[]>} collisions - Массив столкновений.
+ * @param {keyof Collision} [property] - Необязательное свойство столкновения, значение которого должно быть возвращено.
+ * @returns {Optional<Collision> | Optional<Collision[T]>} Возвращает первое столкновение или значение указанного свойства первого столкновения. Если массив столкновений пуст или не определен, возвращает undefined.
  */
 export function getFirstCollision(collisions: Optional<Collision[]>): Optional<Collision>
 

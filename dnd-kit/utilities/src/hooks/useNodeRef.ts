@@ -8,6 +8,7 @@ type OnChange = (newElement: Optional<HTMLElement>, previousElement: Optional<HT
 export function useNodeRef(onChange?: OnChange) {
   const onChangeHandler = useEvent(onChange)
   const node = ref<Optional<HTMLElement>>()
+
   const setNodeRef = (element: Optional<HTMLElement>) => {
     if (element !== node.value) {
       onChangeHandler?.value?.(element, node.value)

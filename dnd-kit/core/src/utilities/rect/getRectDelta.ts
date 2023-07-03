@@ -4,10 +4,11 @@ import type { ClientRect, Coordinates } from '../../types'
 import { defaultCoordinates } from '../coordinates'
 
 /**
- * Получить разнице между Rect: `top` и `left`
+ * Вычисляет разницу между координатами двух Rects типа ClientRect.
  *
- * @param rect1
- * @param rect2
+ * @param {Optional<ClientRect>} rect1 - Первый Rect для сравнения.
+ * @param {Optional<ClientRect>} rect2 - Второй Rect для сравнения.
+ * @returns {Coordinates} Объект с координатами x и y, представляющими разницу между Rects.
  */
 export function getRectDelta(rect1: Optional<ClientRect>, rect2: Optional<ClientRect>): Coordinates {
   return rect1 && rect2

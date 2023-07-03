@@ -3,7 +3,13 @@ import { cornersOfRectangle, sortCollisionsAsc } from './helpers'
 import type { CollisionDescriptor, CollisionDetection } from './types'
 
 /**
- * Возвращает ближайшие прямоугольники из массива прямоугольников к углам другого прямоугольника.
+ * Рассчитывает ближайшие углы заданных прямоугольников и возвращает массив дескрипторов столкновений, отсортированных по возрастанию расстояния.
+ *
+ * @param {Object} params - Входные параметры.
+ * @param {Rectangle} params.collisionRect - Прямоугольник для проверки столкновений.
+ * @param {Map<string, Rectangle>} params.droppableRects - Карта перемещаемых прямоугольников с их идентификаторами в качестве ключей.
+ * @param {DroppableContainer[]} params.droppableContainers - Массив объектов контейнеров для перемещения.
+ * @returns {CollisionDescriptor[]} Массив дескрипторов столкновений, отсортированных по возрастанию расстояния.
  */
 export const closestCorners: CollisionDetection = ({ collisionRect, droppableRects, droppableContainers }) => {
   const corners = cornersOfRectangle(collisionRect)

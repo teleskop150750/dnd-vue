@@ -1,9 +1,11 @@
 import type { Optional, Transform } from '@nado/dnd-kit-utilities'
 
 /**
- * Parse CSS Transform string
+ * Разбирает строку с CSS-трансформацией и возвращает объект с координатами X, Y и масштабами scaleX, scaleY.
+ * Возвращает объект с координатами и масштабами или undefined, если трансформация не поддерживается.
  *
- * @param transform CSS Transform string
+ * @param {string} transform - Строка с CSS-трансформацией.
+ * @returns {Optional<Transform>} Объект с координатами и масштабами или undefined.
  */
 export function parseTransform(transform: string): Optional<Transform> {
   if (transform.startsWith('matrix3d(')) {

@@ -1,12 +1,11 @@
 import { getWindow, isString } from '@nado/dnd-kit-utilities'
 
 /**
- * Проверяет, может ли элемент прокручиваться.
+ * Определяет, является ли элемент прокручиваемым.
  *
- * @param element Элемент, для которого выполняется проверка.
- * @param computedStyle Вычисленные стили элемента.
- *
- * @returns - Возвращает true, если элемент может прокручиваться, иначе возвращает false.
+ * @param {HTMLElement} element - Элемент для проверки.
+ * @param {CSSStyleDeclaration} [computedStyle] - Вычисленные стили элемента. Если не указаны, будут получены автоматически.
+ * @returns {boolean} Возвращает `true`, если элемент прокручиваемый, иначе `false`.
  */
 export function isScrollable(
   element: HTMLElement,

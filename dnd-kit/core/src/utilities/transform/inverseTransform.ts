@@ -3,7 +3,6 @@ import { parseTransform } from './parseTransform'
 
 /**
  * Inverse Transform
- *
  * @param rect ClientRect
  * @param transform CSS Transform string
  * @param transformOrigin CSS TransformOrigin string

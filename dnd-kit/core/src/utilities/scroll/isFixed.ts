@@ -1,10 +1,11 @@
 import { getWindow } from '@nado/dnd-kit-utilities'
 
 /**
- * Это Fixed HTMLElement
+ * Определяет, имеет ли элемент позиционирование `fixed`.
  *
- * @param node HTMLElement
- * @param computedStyle Node ComputedStyle
+ * @param {HTMLElement} node - HTML-элемент, который нужно проверить.
+ * @param {CSSStyleDeclaration} [computedStyle] - объект стилей, вычисленных для элемента. Если не задано, будет получено из Window элемента.
+ * @returns {boolean} Возвращает true, если позиционирование элемента `fixed`, иначе false.
  */
 export function isFixed(
   node: HTMLElement,

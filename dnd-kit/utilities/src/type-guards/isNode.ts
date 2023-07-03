@@ -1,8 +1,9 @@
 /**
- * Это Node
+ * Проверяет, является ли переданный объект узлом Node.
  *
- * @param node Object
+ * @param {object} node - Объект, который нужно проверить.
+ * @returns {boolean} - Возвращает true, если объект является узлом Node, иначе false.
  */
-export function isNode(node: Object): node is Node {
+export function isNode(node: object): node is Node {
   return 'nodeType' in node
 }

@@ -1,12 +1,12 @@
 import { isHTMLElement, type Optional } from '@nado/dnd-kit-utilities'
 
 /**
- * Получить Measurable Node
+ * Возвращает элемент, который можно измерить, основываясь на переданном узле. Если узел не существует, возвращает undefined.
+ * Если у узла есть более одного дочернего элемента, возвращает сам узел. В противном случае возвращает первого
+ * дочернего элемента, если это HTMLElement, или сам узел.
  *
- * @remark
- * Ребенок если он 1 или Node
- *
- * @param node HTMLElement
+ * @param {Optional<HTMLElement>} node - Узел, для которого нужно найти измеряемый элемент.
+ * @returns {Optional<HTMLElement>} Измеряемый элемент или undefined, если узел не существует.
  */
 export function getMeasurableNode(node: Optional<HTMLElement>): Optional<HTMLElement> {
   if (!node) {

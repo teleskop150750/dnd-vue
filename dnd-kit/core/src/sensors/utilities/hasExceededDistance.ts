@@ -1,19 +1,11 @@
 import type { Coordinates, DistanceMeasurement } from '../../types'
 
 /**
- * Проверяет, превысило ли расстояние между двумя точками заданное значение.
- * @param delta - Разница между двумя точками.
- * @param measurement - Значение, которое нужно превысить.
- * @example
- * hasExceededDistance({ x: 10, y: 10 }, 5) // true
- * hasExceededDistance({ x: 10, y: 10 }, { x: 5, y: 5 }) // true
- * hasExceededDistance({ x: 10, y: 10 }, { x: 5 }) // true
- * hasExceededDistance({ x: 10, y: 10 }, { y: 5 }) // true
- * hasExceededDistance({ x: 10, y: 10 }, { x: 15, y: 15 }) // false
- * hasExceededDistance({ x: 10, y: 10 }, { x: 15 }) // false
- * hasExceededDistance({ x: 10, y: 10 }, { y: 15 }) // false
+ * Определяет, превышено ли расстояние между двумя точками на основе указанных измерений.
  *
- * @returns Результат проверки.
+ * @param delta - Объект с координатами разницы между двумя точками.
+ * @param measurement - Объект или число, определяющее измерение расстояния.
+ * @returns Возвращает true, если расстояние превышено, иначе false.
  */
 export function hasExceededDistance(delta: Coordinates, measurement: DistanceMeasurement): boolean {
   const dx = Math.abs(delta.x)

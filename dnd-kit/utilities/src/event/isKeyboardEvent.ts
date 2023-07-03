@@ -2,9 +2,10 @@ import { getWindow } from '../execution-context'
 import type { Nillable } from '../types'
 
 /**
- * Это `KeyboardEvent` `Event`
+ * Проверяет, является ли событие событием клавиатуры.
  *
- * @param event Event
+ * @param {Nillable<Event>} event - Объект события для проверки.
+ * @returns {boolean} Возвращает `true`, если событие является экземпляром `KeyboardEvent`, иначе `false`.
  */
 export function isKeyboardEvent(event: Nillable<Event>): event is KeyboardEvent {
   if (!event) {

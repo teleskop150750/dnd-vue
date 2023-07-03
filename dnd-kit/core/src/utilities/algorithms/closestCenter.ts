@@ -4,13 +4,12 @@ import { sortCollisionsAsc } from './helpers'
 import type { CollisionDescriptor, CollisionDetection } from './types'
 
 /**
- * Возвращает координаты центра ClientRect.
+ * Рассчитывает координаты центра прямоугольника на основе объекта ClientRect.
  *
- * @param rect - Объект, содержащий размеры и координаты ClientRect.
- * @param left - Координата левой границы прямоугольника.
- * @param top - Координата верхней границы прямоугольника.
- *
- * @returns - Объект с координатами центра прямоугольника.
+ * @param {ClientRect} rect - Прямоугольник, для которого нужно рассчитать координаты центра.
+ * @param {number} [left=rect.left] - Позиция слева от прямоугольника (необязательно, по умолчанию равно rect.left).
+ * @param {number} [top=rect.top] - Позиция сверху от прямоугольника (необязательно, по умолчанию равно rect.top).
+ * @returns {Coordinates} Координаты центра прямоугольника в виде объекта с свойствами `x` и `y`.
  */
 function centerOfRectangle(rect: ClientRect, left = rect.left, top = rect.top): Coordinates {
   return {
@@ -20,14 +19,13 @@ function centerOfRectangle(rect: ClientRect, left = rect.left, top = rect.top): 
 }
 
 /**
- * Возвращает ближайшие прямоугольники из массива прямоугольников к центру заданного прямоугольника..
+ * Находит ближайший центр прямоугольника относительно заданного прямоугольника.
  *
- * @param options - Объект с параметрами.
- * @param options.collisionRect - Объект, содержащий размеры и координаты прямоугольника.
- * @param options.droppableRects - Карта, содержащая размеры и координаты прямоугольников, в которые можно перетаскивать элементы.
- * @param options.droppableContainers - Массив объектов, содержащих информацию о контейнерах, в которые можно перетаскивать элементы.
- *
- * @returns - Отсортированный массив объектов, содержащих информацию о ближайшем контейнере и расстоянии до его центра.
+ * @param {Object} params - Объект параметров
+ * @param {Object} params.collisionRect - Прямоугольник, для которого вычисляется ближайший центр
+ * @param {Map} params.droppableRects - Карта идентификаторов контейнеров и их прямоугольников
+ * @param {Array} params.droppableContainers - Массив контейнеров, с которыми может произойти столкновение
+ * @returns {Array} Отсортированный массив объектов, содержащих информацию о ближайшем контейнере и расстоянии до его центра
  */
 export const closestCenter: CollisionDetection = ({ collisionRect, droppableRects, droppableContainers }) => {
   const centerRect = centerOfRectangle(collisionRect, collisionRect.left, collisionRect.top)

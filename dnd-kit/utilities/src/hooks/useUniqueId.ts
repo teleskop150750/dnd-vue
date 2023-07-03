@@ -6,7 +6,6 @@ const ids: Record<string, number> = {}
 
 /**
  * Использовать Unique Id
- *
  * @param prefix Prefix
  * @param value Value
  */
